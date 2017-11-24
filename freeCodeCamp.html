@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Free Code Camp Algo</title>
+</head>
+<body>
+	<h1>Algorithm in Console</h1>
+<script>
+	//=========================== string to array and reverse
+	function reverseString(str) {
+		var ar = [];
+		array = str.split("");
+		console.log(array);
+		rev = array.reverse();
+		console.log(rev);
+		reString = rev.join("");
+		console.log(reString);
+	}
+	console.log("----------- Reversing a String ---------------")
+	reverseString("hello");
+	reverseString("how are you");
+
+	//=========================== factorials
+	function factorialize(n) {
+		if (n === 0) {
+			return 1;
+		}
+	  	return n * factorialize(n - 1);
+	}
+	console.log("----------- Factorial ---------------")
+	factorialize(5);
+	console.log("factorial 5 = " + factorialize(5));
+	//=========================== palindromes
+	function palindrome(str) {
+	  var re = /[\W_]/g;
+	  console.log(re);
+	  var lowRegStr = str.toLowerCase().replace(re, '');
+	  var reverseStr = lowRegStr.split('').reverse().join(''); 
+	  return reverseStr === lowRegStr;
+	}
+	console.log("----------- Palindromes ---------------")
+	palindrome("A man, a plan, a canal. Panama");
+	console.log("True: " + "A man, a plan, a canal. Panama");
+	//=========================== testing REGULAR EXPRSSION test stuff
+	var re = /[^A-Za-z0-9-i]/g; // or /[\W_]/g;
+	var first = "ab*c_d";
+	var second = "Abcd";
+
+	var newFirst = first.toLowerCase().replace(re, ''); 
+	console.log(newFirst);
+	console.log(first);
+
+	if (newFirst == second){	
+		console.log("True this");
+	} else {
+		console.log("false this");
+	}
+	//notes: basically "var re = /[\W_]/g" in this expression omits
+	//the special characters and compares the alphabet letters only
+
+	//=========================== find the longest word
+	function findLongestWord(str) {
+	  var stringToArray = str.split(" ");
+
+	  for (var i = 0; i < stringToArray.length; i++) {
+	  	var ch = stringToArray[i];
+	  	var length = ch.length;
+	  	var longest = stringToArray.reduce(function (a, b) { return a.length > b.length ? a : b; });
+	  	var answer = longest.length;
+	  	console.log("----------- Length of Longest Letter in a sentence ---------------")
+	  	console.log("The quick brown fox jumped over the lazy dog");
+	  	console.log(answer);
+	  	return answer;
+	  }
+	}
+
+	findLongestWord("The quick brown fox jumped over the lazy dog");
+	//=========================== Capitalize each letter at the beginning of each word
+	function titleCase(str) {
+
+		  str = str.toLowerCase().split(' ');
+		  for (var i = 0; i < str.length; i++) {
+		  	console.log(str[i]);
+		    str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1); 
+		  }
+		  console.log(str.join(' '));
+		  return str.join(' ');
+	}
+			titleCase("the laZy doG");
+
+
+	//=========================== Largest number from each provided sub-array
+	//my solution answers the problem but freecodecamp does not accept this (must be a glitch); 
+	var numbers;
+	var largestArr = [];
+	function largestOfFour(arr) {
+	  // You can do this!
+	  for (var i = 0; i < 4; i++) {
+	  	arr[i] = arr[i];
+	  	// console.log(arr[0]);
+	  	// console.log(arr[1]);
+	  	// console.log(arr[2]);
+	  	// console.log(arr[3])
+	  	// console.log(arr[i][0]);;
+	  	arr[i].sort(function(a,b){
+	 			return a < b;
+	  		 });
+	  	console.log(arr[i][0]);
+	  	answer = arr[i][0];
+	  	largestArr.push(answer);
+
+	  	// largestArr.push(main[0]);
+	  	console.log(largestArr);
+	  	//  return main[0];
+	  }
+	  		 console.log(largestArr);
+	  		 return largestArr;
+	  	 
+	  
+	}
+
+	largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);
+	
+
+</script>
+</body>
+</html>
+
