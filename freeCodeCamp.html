@@ -2,9 +2,22 @@
 <html>
 <head>
 	<title>Free Code Camp Algo</title>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+	integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	crossorigin="anonymous"></script>
 </head>
+<style>
+#answer {
+	font-size: 20px;
+	height:400px;
+	width:600px;
+	background-color: lightblue;
+}
+</style>
 <body>
 	<h1>Algorithm in Console</h1>
+	<h2>Future project: create a user interface for the algorithm</h2>
+	<div id="answer"></div>
 <script>
 	//=========================== string to array and reverse
 	function reverseString(str) {
@@ -67,7 +80,7 @@
 	  	var length = ch.length;
 	  	var longest = stringToArray.reduce(function (a, b) { return a.length > b.length ? a : b; });
 	  	var answer = longest.length;
-	  	console.log("----------- Length of Longest Letter in a sentence ---------------")
+	  	console.log("------- Longest Letter in a sentence -------")
 	  	console.log("The quick brown fox jumped over the lazy dog");
 	  	console.log(answer);
 	  	return answer;
@@ -91,7 +104,6 @@
 
 	//=========================== Largest number from each provided sub-array
 	//my solution answers the problem but freecodecamp does not accept this (must be a glitch); 
-	var numbers;
 	var largestArr = [];
 	function largestOfFour(arr) {
 	  // You can do this!
@@ -109,20 +121,192 @@
 	  	answer = arr[i][0];
 	  	largestArr.push(answer);
 
-	  	// largestArr.push(main[0]);
 	  	console.log(largestArr);
-	  	//  return main[0];
 	  }
 	  		 console.log(largestArr);
-	  		 return largestArr;
-	  	 
-	  
+	  		 return largestArr;  
 	}
 
 	largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);
+	//================ Confirm the Ending ===============
+	console.log("--------Confirm Ending----------")
 	
+	function confirmEnding(str, target) {
+	  // "Never give up and good luck will find you."
+	  // -- Falcor
+	  if ((str.substr(str.length-1) === target) || (str.substring(str.length - 4) === target)) { 
+	  	 console.log("same ending");
+	  	 return true;
+	  } 
+	  else {
+	  	console.log("not same edning");
+	  	return false;
+	  }
+
+	  return str;
+	}
+
+	confirmEnding("Open Sesame", "same");
+
+ 	//==== Lesson for this challenge ====
+	// 	var anyString = 'Mozilla';
+
+	// // Displays 'Moz'
+	// console.log(anyString.substring(0, 3));
+	// console.log(anyString.substring(3, 0));
+
+	// // Displays 'lla'
+	// console.log(anyString.substring(4, 7));
+	// console.log(anyString.substring(4));
+	// console.log(anyString.substring(7, 4));
+
+	// // Displays 'Mozill'
+	// console.log(anyString.substring(0, 6));
+
+	// // Displays 'Mozilla'
+	// console.log(anyString.substring(0, 7));
+	// console.log(anyString.substring(0, 10));
+	// // Displays 'illa' the last 4 characters
+	// var anyString = 'Mozilla';
+	// var anyString4 = anyString.substring(anyString.length - 4);
+	// console.log(anyString4);
+
+	// // Displays 'zilla' the last 5 characters
+	// var anyString = 'Mozilla';
+	// var anyString5 = anyString.substring(anyString.length - 5);
+	// console.log(anyString5);
+
+	//========= Repeat a String Repeat a String ===========
+	console.log("--------- Repeat a String -----------");
+	function repeatStringNumTimes(str, num) {
+	  // repeat after me
+	  if (num < 0) {
+	  	emptyString = "";
+	  	console.log(emptyString + "\"\"");
+	  	return emptyString;
+	  }
+	  var answer = str.repeat(num);
+	  console.log(answer);
+	  return answer;
+	}
+	repeatStringNumTimes("abc", -2);
+	repeatStringNumTimes("echo! ", 3);
+	console.log("---------- Truncate a String ----------");
+	
+	function truncateString(str, num) {
+		// Clear out that junk in your trunk
+		console.log(num);
+		if (num <= 3) {
+			console.log(str.slice(0,num) + "...");
+			return (str.slice(0,num) + "...");
+		}
+		if (str.length > num) {
+			console.log(str.slice(0,num-3) + "...");
+			return str.slice(0,num-3) + "...";
+		}
+		else if (str.length <= num) {
+			console.log(str.slice(0));
+			return str.slice(0);
+		}	
+	}	
+	truncateString("A-tisket a-tasket A green and yellow basket", 11);
+	truncateString("A-", 1);
+	// console.log("A-".slice(0,1) + "...");
+	console.log("---------- Function that splits an array ----------");
+	function chunkArrayInGroups(arr, size) {
+	  // Break it up.
+	  var chunks = [];
+	  for (var i = 0; i < arr.length; i+=size) {
+	  		arr[i];
+	  		// console.log("Here: " + (arr.slice(i,i+size)));
+	  		var here = arr.slice(i,i+size);
+	  		// console.log(here);
+	  		chunks.push(here);
+	  		
+	  } 
+	  console.log(chunks);
+	  return chunks;
+	}
+	chunkArrayInGroups([0, 1, 2, 3, 4, 5], 2);
+	console.log("---------- Slice or Splice ----------");
+	// Return the remaining elements of an array after chopping off n elements from the head.
+
+	// The head means the beginning of the array, or the zeroth index.
+
+	function slasher(arr, howMany) {
+	  // it doesn't always pay to be first
+	  console.log(arr.slice(howMany,arr.length+1));
+	  var slashed = arr.slice(howMany,arr.length+1);
+	  return slashed;
+	}
+
+	slasher([1, 2, 3], 2);
+	console.log("---------- Mutations ----------");
+
+	function mutation(arr) {
+
+		// console.log(arr[1].toLowerCase().split(''));//split to make an array
+		var r0 = arr[0].toLowerCase(); 
+		var r1  = arr[1].toLowerCase(); 		
+		for (var i = 0; i < r1.length; i++) {
+			if (r0.indexOf(r1[i]) === -1) 
+				console.log("false");
+				return false;	
+		}		
+				console.log("true");
+				return true;
+	}
+	// mutation(["Mary", "Army"]) //should return true.
+	// mutation(["hello", "Hello"]) //should return true.
+	mutation(["hello", "hEy"]);//should return false
+	// mutation(["zyxwvutsrqponmlkjihgfedcba", "qrstu"]);//return true
+	console.log("---------- Filter ----------");
+		
+			
+			
+	function bouncer(arr) {
+	
+		function test(sample) {//this will return true values
+			// Don't show a false ID to this bouncer.
+			return sample;
+		}
+			var filtered = arr.filter(test);
+			console.log(filtered);
+	}
+		bouncer([7, "ate", "", false, 9]);
+		console.log("---------- Remove Same Values ----------");
+	
+	function destroyer(arr,a,b,c) {
+	  // Remove all the values
+	  console.log(arguments[1]);
+	  	var a = arguments[1];
+	  	var b = arguments[2];
+	  	var b = arguments[3];
+	  	var destroy = arr.filter(function(val){
+	  		return ((val !== a) && (val !== b) && (val !== c));
+		});
+		
+		$("#answer").text(destroy);
+	}
+
+	
+
+	destroyer([1, 2, 3, 1, 2, 3], 2, 3);
+
+	
+
+ 	 
 
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
 
