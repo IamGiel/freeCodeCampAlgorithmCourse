@@ -4,9 +4,31 @@
 Notes:
 
 **UPDATE Nov 28th 2017:**
-As I test the output of the codes in the console, I seem to encounter the same problem with for loops not iterating- Especially when I use for loops and if statements that has a 'return'.  This stops the loop.  To show iteration in the console, I had to move the if statements outside the scope of the for loop, this makes all the variables undefined.
+Felt really good to complete line 285 - 296.  I wrote the steps I need and was able to complete the task for every steps.  Its not always like that but when the workflow works as planned IT MAKES SENSE coding the way its coded.  
 
-On lines 234 - 250, not sure if its because of ES6 updates, this challenge exemplifies what I mean.  For some reason, Line 240 (if statement) did not need an open and close bracket for the condition inside it to work.  This is also a challenge wherein 'return' stops the loop and is enough to satisfy the solution.
+//plan:
+	//push the value in the array
+	//sort it
+	//get its index value
+	//return it
+    
+    Heres the execution:
+    
+    function getIndexToIns(arr, num) {
+	  
+	  const addNum = arr.push(num);
+	  console.log(arr);
+	  arr.sort(function(a,b){
+	  	return a - b;
+	  })
+	  console.log(arr.indexOf(num));
+	  return arr.indexOf(num);
+	}
+	getIndexToIns([40, 60], 50);
+
+
+**UPDATE Nov 28th 2017:**
+Lesson to take from - function bouncer(arr); (line 253 at the moment) that the expression that is passed, when returned it only returns true values from the array that the expression represents. 
 
 
 **UPDATE Nov 27th 2017:**
