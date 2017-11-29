@@ -44,9 +44,10 @@
 
 	console.log("----------- Palindromes ---------------")
 	function palindrome(str) {
-	  var re = /[\W_]/g;
+	  var re = /[\W_]/g; //remove special characters and spaces
 	  console.log(re);
 	  var lowRegStr = str.toLowerCase().replace(re, '');
+	  console.log(lowRegStr);
 	  var reverseStr = lowRegStr.split('').reverse().join(''); 
 	  return reverseStr === lowRegStr;
 	}
@@ -292,10 +293,61 @@
 	  console.log(arr.indexOf(num));
 	  return arr.indexOf(num);
 	}
-
 	getIndexToIns([40, 60], 50);
 
+	console.log("--------- Caesars Cipher ----------");
+	//Plan:
+	//Lets try to work on a few letter as sampler
+	//Transform each letter to its equivalent ROT13 such that A = N.
+	//return it
+	function rot13(str) { // LBH QVQ VG!
+		var ceasar;
+		var cipher;
+		var arr = [];
+		console.log(str);
+		for (var i = 0; i < str.length; i++) {
+				str[i];
+				var given = str.charCodeAt(i);
+				console.log(given);
+			if (given <= 64) {
+				ceasar = given;
+				cipher = String.fromCharCode(ceasar).toUpperCase();
+				console.log(arr.push(cipher));
+			console.log(arr);
+			}
+			if (given >= 78) {
+				console.log("this is given: " + given);
+				ceasar = given-13; console.log(ceasar);
+				cipher = String.fromCharCode(ceasar).toUpperCase();
+				console.log(arr.push(cipher));
+				console.log(arr);
+			}
+			if ((given <= 76) && (given >= 65)){
+			
+				console.log("this is given: " + given);
+				ceasar = given+13; console.log(ceasar);
+				cipher = String.fromCharCode(ceasar).toUpperCase();
+				console.log(arr.push(cipher));
+				console.log(arr);
+			}
+			if (given == 77) {
+			
+				console.log("this is given: " + given);
+				ceasar = given+13; console.log(ceasar);
+				cipher = String.fromCharCode(ceasar).toUpperCase();
+				console.log(arr.push(cipher));
+				console.log(arr);
+			}				
+		}	
+		var answer = arr.join("");
+		console.log(answer);
+		return answer;
+			
+	}					
 
+	// Change the inputs below 	to test
+	// rot13("SERR CVMMN!");
+	rot13("SERR YBIR?");
  	 
 
 </script>
